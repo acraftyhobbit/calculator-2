@@ -10,8 +10,12 @@ from arithmetic import *
 while True:
     math_calculation = raw_input(">")
     tokens = math_calculation.split(" ")
-    #if the first token is "q":
-    #    quit
+    
+    for item in tokens:
+        try:
+            num1 = int(item)
+        except ValueError:
+            print "Please put in a number."
     if tokens[0] == "q":
         break
     elif tokens[0] == "+":
