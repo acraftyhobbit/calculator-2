@@ -24,28 +24,28 @@ with open('results.txt', 'wt') as f:# this writes a new file and will overwrite 
         result = None
         tokens = i.split(" ")
         numbers = list()
-        for item in tokens[1:]:
+        for idx, item in enumerate(tokens[1:]):
             try:
                 numbers.append(int(item))
             except ValueError:
                 result =  "Please put in a number."
         if tokens[0] == "q":
             break
-        elif tokens[0] == "+":
+        elif tokens[1] == "+":
             result =  my_reduce(add, numbers)
-        elif tokens[0] == "-":
+        elif tokens[1] == "-":
             result =  my_reduce(subtract, numbers)
-        elif tokens[0] == "*":
+        elif tokens[1] == "*":
             result =  my_reduce(multiply, numbers) 
-        elif tokens[0] == "/":
+        elif tokens[1] == "/":
             result =  my_reduce(divide, numbers)
-        elif tokens[0] == "square":
+        elif tokens[1] == "square":
             result =  square(numbers[0])
-        elif tokens[0] == "cube":
+        elif tokens[1] == "cube":
             result =  cube(numbers[0])
-        elif tokens[0] == "pow":
+        elif tokens[1] == "pow":
             result =  my_reduce(power, numbers)
-        elif tokens[0] == "mod":
+        elif tokens[1] == "mod":
             result =  my_reduce(mod, numbers)
         else:
             result =  "Please enter a valid operation"
