@@ -53,10 +53,9 @@ def add_cubes(num1, num2):
     return add(cube(num1), cube(num2))
 
 
-def add_forever(nums):
+def add_forever(*nums):
     """Return the sum of any number of input integers."""
-
     total = 0
     for n in nums:
         total = total + int(n)
-    return total    
+    return total

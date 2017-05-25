@@ -10,30 +10,29 @@ from arithmetic import *
 while True:
     math_calculation = raw_input(">")
     tokens = math_calculation.split(" ")
-    
-    for item in tokens:
+    numbers = list()
+    for item in tokens[1:]:
         try:
-            num1 = int(item)
+            numbers.append(int(item))
         except ValueError:
             print "Please put in a number."
     if tokens[0] == "q":
         break
     elif tokens[0] == "+":
-        results = add(int(tokens[1]), int(tokens[2]))
-        print results
+        print reduce(add, numbers)
     elif tokens[0] == "-":
-        results = subtract(int(tokens[1]), int(tokens[2]))
-        print results
+        print reduce(subtract, numbers)
     elif tokens[0] == "*":
-        results = multiply(int(tokens[1]), int(tokens[2]))
-        print results
+        print reduce(multiply, numbers) 
     elif tokens[0] == "/":
-        print divide(float(tokens[1]), float(tokens[2]))
+        print reduce(divide, numbers)
     elif tokens[0] == "square":
-        print square(int(tokens[1]))
+        print square(numbers[0])
     elif tokens[0] == "cube":
-        print cube(int(tokens[1]))
+        print cube(numbers[0])
     elif tokens[0] == "pow":
-        print power(int(tokens[1]), int(tokens[2]))
+        print reduce(power, numbers)
     elif tokens[0] == "mod":
-        print mod(int(tokens[1]), int(tokens[2]))
+        print reduce(divide, mod)
+    else:
+        print "Please enter a valid operation"
